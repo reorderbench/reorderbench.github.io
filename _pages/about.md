@@ -2,8 +2,8 @@
 layout: about
 title: About
 permalink: /
-subtitle: A Dataset for Matrix Reordering
-description: "Matrix reordering permutes the rows and columns of a matrix to reveal meaningful visual patterns, such as blocks that represent clusters.A comprehensive collection of such matrices and their scores for measuring the quality of visual patterns in these matrices contributes to building a benchmark for selecting or designing an appropriate reordering algorithm for a task of interest.In this paper, we build a matrix reordering dataset, ReorderBench, with the goal of advancing matrix reordering techniques.This is achieved by generating a large set of diverse and representative matrices and scoring these matrices with a convolution- and entropy-based method. Our dataset contains 544,500 binary matrices and 1,089,000 continuous matrices, each featuring one of four visual patterns: block, off-diagonal block, star, or band. We demonstrate the usefulness of ReorderBench through three main applications in matrix reordering: 1) evaluating different reordering algorithms, 2) creating a unified scoring model to measure the visual patterns in any matrix, and 3) developing a deep learning model for matrix reordering."
+subtitle: A Benchmark for Matrix Reordering
+description: "Matrix reordering permutes the rows and columns of a matrix to reveal meaningful visual patterns, such as blocks that represent clusters. A comprehensive collection of matrices, along with their scores for measuring the quality of visual patterns in these matrices, contributes to building a benchmark. This benchmark is essential for selecting or designing an appropriate reordering algorithm for a task of interest. In this paper, we build a matrix reordering benchmark, ReorderBench, with the goal of advancing matrix reordering techniques. This is achieved by generating a large set of diverse and representative matrices and scoring these matrices with a convolution- and entropy-based method. Our benchmark contains 2,835,000 binary matrices and 5,670,000 continuous matrices, each featuring one of four visual patterns: block, off-diagonal block, star, or band. We demonstrate the usefulness of ReorderBench through three main applications in matrix reordering: 1) evaluating different reordering algorithms, 2) creating a unified scoring model to measure the visual patterns in any matrix, and 3) developing a deep learning model for matrix reordering."
 # pretty_table: true
 # profile:
 #   align: right
@@ -19,40 +19,58 @@ description: "Matrix reordering permutes the rows and columns of a matrix to rev
 
 <h4><span class="font-weight-bold">What is ReorderBench?</span></h4>
 
-ReorderBench is a large-scale matrix dataset built for matrix reordering. ReorderBench has the following features:
+ReorderBench is a large-scale matrix benchmark built for matrix reordering. ReorderBench has the following features:
 
 - [x] Visual pattern recognition
-- [x] 544,500 binary matrices and 1,089,000 continuous matrices
-- [x] Four visual patterns: block, off-diagonal block, star, and band
+- [x] 2,835,000 binary matrices and 5,670,000 continuous matrices
+- [x] 4 visual patterns: block, off-diagonal block, star, and band
+- [x] 4 matrix sizes: 100x100, 200x200, 300x300, and 400x400
 - [x] Scores to measure the quality of visual patterns
-
-Each matrix is of size 200x200 and symmetric.
 
 <br />
 
-<h4><span class="font-weight-bold">Dataset</span></h4>
+<h4><span class="font-weight-bold">Benchmark</span></h4>
 
-We provide the ReorderBench test set at [Google Drive](https://drive.google.com/drive/folders/1GHtuL6TgyQ7WMW1C8sIYebx4HBknKu5n?usp=drive_link) and [Hugging Face](https://huggingface.co/datasets/reorderbench/ReorderBench).
+We provide the ReorderBench test set with 1,701,000 matrices at [Hugging Face](https://huggingface.co/datasets/reorderbench/ReorderBench). 
+Click <a href="http://166.111.80.25:5173">HERE</a> to explore more examples.
 
-<div class="col-sm mt-0 mt-md-0">
-    {% include figure.liquid path="assets/img/examples.png" class="img-fluid rounded z-depth-1" zoomable=false %}
+<div class="row justify-content-sm-center">
+    <a href="http://166.111.80.25:5173">
+        <div class="col-sm-12 mt-4 mt-md-0">
+            {% include figure.liquid 
+                path="assets/img/matrix_navigator.png" 
+                class="img-fluid rounded z-depth-1" 
+                zoomable=false
+                caption="Click to explore the ReorderBench test set." 
+            %}
+        </div>
+    </a>
+</div>
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm mt-4 mt-md-0">
+        {% include figure.liquid path="assets/img/examples_full.png" class="img-fluid rounded z-depth-1" zoomable=false %}
+    </div>
+</div>
+<div class="caption">
+    Examples of matrices in ReorderBench. 
 </div>
 
 <br />
 
-<h4><span class="font-weight-bold">Dataset Generation Pipeline</span></h4>
+<h4><span class="font-weight-bold">Benchmark generation pipiline</span></h4>
 
-To ensure the representativeness and diversity of the ReorderBench dataset, we first generate a set of representative matrix templates for each visual pattern. Then, based on these matrix templates, a large number of matrix variations with diverse degrees of degeneration are generated. The diversity is achieved by combining different variation methods, including index swapping and two types of typical anti-patterns: noise anti-patterns and noise-cluster anti-patterns. To accurately evaluate the quality of visual patterns in a matrix, we develop a scoring method by combining the matching capability of convolutional kernels and the disorder detection capability of entropy.
+To ensure the representativeness and diversity of the ReorderBench, we first generate a set of representative matrix templates for each visual pattern. Then, based on these matrix templates, a large number of matrix variations with diverse degrees of degeneration are generated. The diversity is achieved by combining different variation methods, including index swapping and two types of typical anti-patterns: noise anti-patterns and noise-cluster anti-patterns. To accurately evaluate the quality of visual patterns in a matrix, we develop a scoring method by combining the matching capability of convolutional kernels and the disorder detection capability of entropy.
 
 The code for generating the dataset is available at [Github](https://github.com/reorderbench/reorderbench_code/tree/main/generator).
 
 <div class="row justify-content-sm-center">
-<div class="col-sm mt-0 mt-md-0">
-    {% include figure.liquid path="assets/img/system_pipeline.png" class="img-fluid rounded z-depth-1" zoomable=true %}
-</div>
+    <div class="col-sm mt-4 mt-md-0">
+        {% include figure.liquid path="assets/img/system_pipeline.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
 </div>
 <div class="caption">
-    The construction pipeline for the ReorderBench dataset.
+    The generation pipeline for the ReorderBench benchmark.
 </div>
 
 
@@ -60,35 +78,43 @@ The code for generating the dataset is available at [Github](https://github.com/
 
 <h4><span class="font-weight-bold">Unified scoring model</span></h4>
 
-We build a unified scoring model based on the ReorderBench dataset. This model aligns with the convolution- and entropy-based scoring method across all four visual patterns in both binary and continuous matrices and can also measure matrices of varying sizes. 
+We build a unified scoring model based on the ReorderBench. This model aligns with the convolution- and entropy-based scoring method across all four visual patterns in both binary and continuous matrices and can also measure matrices of varying sizes. 
 
-The unified scoring model is available [Google Drive](https://drive.google.com/drive/folders/1QatoIuwYmqpBRF-bXoPHzY24a0KdOriw?usp=drive_link) and [Hugging Face](https://huggingface.co/reorderbench/unified_scoring_model). The related code is available at [Github](https://github.com/reorderbench/reorderbench_code/tree/main/unified_scoring_model).
+The unified scoring model is available at [Hugging Face](https://huggingface.co/reorderbench/unified_scoring_model). The related code is available at [Github](https://github.com/reorderbench/reorderbench_code/tree/main/unified_scoring_model).
 
 <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-4 mt-md-0">
+    <div class="col-sm-10 mt-4 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/score.png" 
+            path="assets/img/scoring_model.png" 
             class="img-fluid rounded z-depth-1" 
             zoomable=false 
         %}
     </div>
 </div>
-<div class="caption">
-    Scores of real-world matrices generated by the unified scoring model. For each matrix, the scores measure the quality of block, off-diagonal block, star, and band patterns, respectively.
-</div>
+<figcaption class="caption">
+    Scores generated by our unified scoring model, which measure the quality of block, off-diagonal block, star, and band patterns, respectively. The matrices are from 
+    <a href="http://vlado.fmf.uni-lj.si/pub/networks/data/">
+        the Pajek graph
+    </a> 
+    and 
+    <a href="https://networkrepository.com/">
+        the Network Repository
+    </a>
+    .
+</figcaption>
 
 <div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-4 mt-md-0">
+    <div class="col-sm-11 mt-4 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/scoring.png" 
+            path="assets/img/scoring_model_compare.png" 
             class="img-fluid rounded z-depth-0" 
             zoomable=false 
         %}
     </div>
 </div>
-<div class="caption">
+<figcaption class="caption">
     The performance of deep neural networks as the unified scoring model. The best performance under each measure is  <span style="font-weight: 900;">bold</span>.
-</div>
+</figcaption>
 
 <br />
 
@@ -96,10 +122,10 @@ The unified scoring model is available [Google Drive](https://drive.google.com/d
 
 The extensive and diverse matrices in ReorderBench offer valuable supervision for training a deep reordering model. By treating the matrices with index swaps as negative samples and their ground-truth matrices as positive samples, we build a deep model for matrix reordering.
 
-The models are available at [Google Drive](https://drive.google.com/drive/folders/1pDLDtbPISPTpeXuxv_fb48g-EMMpBWhb?usp=drive_link) or [Hugging Face](https://huggingface.co/reorderbench/reordering_model). The related code is available at [Github](https://github.com/reorderbench/reorderbench_code/tree/main/reordering_model).
+The models are available at [Hugging Face](https://huggingface.co/reorderbench/reordering_model). The related code is available at [Github](https://github.com/reorderbench/reorderbench_code/tree/main/reordering_model).
 
 <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-4 mt-md-0">
+    <div class="col-sm-10 mt-4 mt-md-0">
         {% include figure.liquid 
             path="assets/img/deep_reorder.png" 
             class="img-fluid rounded z-depth-1" 
@@ -107,9 +133,9 @@ The models are available at [Google Drive](https://drive.google.com/drive/folder
         %}
     </div>
 </div>
-<div class="caption">
+<figcaption class="caption">
     The architecture of our deep reordering model.
-</div>
+</figcaption>
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-10 mt-4 mt-md-0">
@@ -120,9 +146,9 @@ The models are available at [Google Drive](https://drive.google.com/drive/folder
         %}
     </div>
 </div>
-<div class="caption">
+<figcaption class="caption">
     Evaluation results of existing matrix reordering algorithms and our matrix reordering model. The best one is <span style="font-weight: 900;">bold</span>, and the runner-up is <u>underlined</u>.
-</div>
+</figcaption>
 
 <br />
 
