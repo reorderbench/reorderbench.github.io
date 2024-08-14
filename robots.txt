@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://reorderbench.github.io/sitemap.xml
