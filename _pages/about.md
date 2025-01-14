@@ -3,7 +3,7 @@ layout: about
 title: About
 permalink: /
 subtitle: A Benchmark for Matrix Reordering
-description: "Matrix reordering permutes the rows and columns of a matrix to reveal meaningful visual patterns, such as blocks that represent clusters. A comprehensive collection of matrices, along with their scores for measuring the quality of visual patterns in these matrices, contributes to building a benchmark. This benchmark is essential for selecting or designing an appropriate reordering algorithm for a task of interest. In this paper, we build a matrix reordering benchmark, ReorderBench, with the goal of advancing matrix reordering techniques. This is achieved by generating a large set of diverse and representative matrices and scoring these matrices with a convolution- and entropy-based method. Our benchmark contains 2,835,000 binary matrices and 5,670,000 continuous matrices, each featuring one of four visual patterns: block, off-diagonal block, star, or band. We demonstrate the usefulness of ReorderBench through three main applications in matrix reordering: 1) evaluating different reordering algorithms, 2) creating a unified scoring model to measure the visual patterns in any matrix, and 3) developing a deep learning model for matrix reordering."
+description: "Matrix reordering permutes the rows and columns of a matrix to reveal meaningful visual patterns, such as blocks that represent clusters. A comprehensive collection of matrices, along with a scoring method for measuring the quality of visual patterns in these matrices, contributes to building a benchmark. This benchmark is essential for selecting or designing suitable reordering algorithms for revealing specific patterns. In this paper, we build a matrix-reordering benchmark, ReorderBench, with the goal of evaluating and improving matrix-reordering techniques. This is achieved by generating a large set of representative and diverse matrices and scoring these matrices with a convolution- and entropy-based method. Our benchmark contains 2,835,000 binary matrices and 5,670,000 continuous matrices, each generated to exhibit one of four visual patterns: block, off-diagonal block, star, or band, along with 450 real-world matrices featuring hybrid visual patterns. We demonstrate the usefulness of ReorderBench through three main applications in matrix reordering: 1) evaluating different reordering algorithms, 2) creating a unified scoring model to measure the visual patterns in any matrix, and 3) developing a deep learning model for matrix reordering."
 # pretty_table: true
 # profile:
 #   align: right
@@ -23,6 +23,7 @@ ReorderBench is a large-scale matrix benchmark built for matrix reordering. Reor
 
 - [x] Visual pattern recognition
 - [x] 2,835,000 binary matrices and 5,670,000 continuous matrices
+- [x] 450 real-world matrices featuring hybrid visual patterns
 - [x] 4 visual patterns: block, off-diagonal block, star, and band
 - [x] 4 matrix sizes: 100x100, 200x200, 300x300, and 400x400
 - [x] Scores to measure the quality of visual patterns
