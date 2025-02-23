@@ -33,10 +33,10 @@ ReorderBench is a large-scale matrix benchmark built for matrix reordering. Reor
 <h4><span class="font-weight-bold">Benchmark</span></h4>
 
 We provide the ReorderBench test set with 1,701,000 matrices at [Hugging Face](https://huggingface.co/datasets/reorderbench/ReorderBench). 
-Click <a href="http://166.111.80.25:5173">HERE</a> to explore more examples.
+Click <a href="http://166.111.86.38:5173">HERE</a> to explore more examples.
 
 <div class="row justify-content-sm-center">
-    <a href="http://166.111.80.25:5173">
+    <a href="http://166.111.86.38:5173">
         <div class="col-sm-12 mt-4 mt-md-0">
             {% include figure.liquid 
                 path="assets/img/matrix_navigator.png" 
