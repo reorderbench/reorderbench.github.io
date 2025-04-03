@@ -124,6 +124,7 @@ The unified scoring model is available at [Hugging Face](https://huggingface.co/
 The extensive and diverse matrices in ReorderBench offer valuable supervision for training a deep reordering model. By treating the matrices with index swaps as negative samples and their ground-truth matrices as positive samples, we build a deep model for matrix reordering.
 
 The models are available at [Hugging Face](https://huggingface.co/reorderbench/reordering_model). The related code is available at [Github](https://github.com/reorderbench/reorderbench_code/tree/main/reordering_model).
+You can also try the models with docker. The Docker image is available at [Docker Hub](https://hub.docker.com/r/zhengwang113/reordering_model).
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-10 mt-4 mt-md-0">
