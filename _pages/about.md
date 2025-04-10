@@ -22,8 +22,7 @@ description: "Matrix reordering permutes the rows and columns of a matrix to rev
 ReorderBench is a large-scale matrix benchmark built for matrix reordering. ReorderBench has the following features:
 
 - [x] Visual pattern recognition
-- [x] 2,835,000 binary matrices and 5,670,000 continuous matrices
-- [x] 450 real-world matrices featuring hybrid visual patterns
+- [x] 2,835,000 binary matrices, 5,670,000 continuous matrices, and 450 real-world matrices with expert-annotated visual patterns
 - [x] 4 visual patterns: block, off-diagonal block, star, and band
 - [x] 4 matrix sizes: 100x100, 200x200, 300x300, and 400x400
 - [x] Scores to measure the quality of visual patterns
@@ -32,7 +31,8 @@ ReorderBench is a large-scale matrix benchmark built for matrix reordering. Reor
 
 <h4><span class="font-weight-bold">Benchmark</span></h4>
 
-We provide the ReorderBench test set with 1,701,000 matrices at [Hugging Face](https://huggingface.co/datasets/reorderbench/ReorderBench). 
+We provide the ReorderBench test set with 1,701,000 matrices and the annotated real-world collection of 450 matrices at [Hugging Face](https://huggingface.co/datasets/reorderbench/ReorderBench). Different parts of the ReorderBench training set are available at [block](https://huggingface.co/datasets/reorderbench/ReorderBench_train_block), [offblock](https://huggingface.co/datasets/reorderbench/ReorderBench_train_offblock), [star](https://huggingface.co/datasets/reorderbench/ReorderBench_train_star) and [band](https://huggingface.co/datasets/reorderbench/ReorderBench_train_band).
+
 Click <a href="http://166.111.86.38:5173">HERE</a> to explore more examples.
 
 <div class="row justify-content-sm-center">
