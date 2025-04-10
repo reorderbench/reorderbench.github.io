@@ -31,7 +31,7 @@ ReorderBench is a large-scale matrix benchmark built for matrix reordering. Reor
 
 <h4><span class="font-weight-bold">Benchmark</span></h4>
 
-We provide the ReorderBench test set with 1,701,000 matrices and the annotated real-world collection of 450 matrices at [Hugging Face](https://huggingface.co/datasets/reorderbench/ReorderBench). Different parts of the ReorderBench training set are available at [block](https://huggingface.co/datasets/reorderbench/ReorderBench_train_block), [offblock](https://huggingface.co/datasets/reorderbench/ReorderBench_train_offblock), [star](https://huggingface.co/datasets/reorderbench/ReorderBench_train_star) and [band](https://huggingface.co/datasets/reorderbench/ReorderBench_train_band).
+We provide the ReorderBench test set with 1,701,000 matrices and the annotated real-world collection of 450 matrices at [Hugging Face](https://huggingface.co/datasets/reorderbench/ReorderBench).
 
 Click <a href="http://166.111.86.38:5173">HERE</a> to explore more examples.
 
